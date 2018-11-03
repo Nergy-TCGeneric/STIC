@@ -3,8 +3,8 @@
 <p align="center">
  <img src="https://github.com/TCGeneric/STIC/blob/master/STIClogo.png"> <br/>
   <b>Science tree for information and creativity</b> <br/>
-  과학나무 프로젝트
-  현재 개발 진행중 : [STIC 프로젝트 웹사이트](http://tcgeneric.github.io/webapp/index.html)
+  과학나무 프로젝트 <br/>
+  현재 개발 진행중 : http://tcgeneric.github.io/webapp/index.html
 </p>
 
 ## 목적
