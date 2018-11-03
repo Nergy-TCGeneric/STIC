@@ -4,6 +4,7 @@
  <img src="https://github.com/TCGeneric/STIC/blob/master/STIClogo.png"> <br/>
   <b>Science tree for information and creativity</b> <br/>
   과학나무 프로젝트
+  현재 개발 진행중 : [STIC 프로젝트 웹사이트](http://tcgeneric.github.io/webapp/index.html)
 </p>
 
 ## 목적
@@ -15,7 +16,7 @@
 - 한국어로 번역 및 일부 표현들을 가공
 
 앞으로 해나가야 할 과제들:
-- [ ] Github Page 생성
+- [x] Github Page 생성
 - [ ] 웹 애플리케이션 제작을 위해 어떤 도구를 사용할 지 결정
   - [ ] 만일 선택한 도구를 처음 만져본다면, **무조건 배워야지!**
   - [ ] 웹 애플리케이션 제작 및 구동
