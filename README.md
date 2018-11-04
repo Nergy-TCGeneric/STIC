@@ -5,6 +5,7 @@
   <b>Science tree for information and creativity</b> <br/>
   과학나무 프로젝트 <br/>
   현재 개발 진행중 : http://tcgeneric.github.io/STIC/webapp/
+  텍스트 버전(프로토타입) : http://tcgeneric.github.io/STIC/prototype/
 </p>
 
 ## 목적
