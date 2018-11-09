@@ -1,0 +1,58 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0px;
+    color: white;
+    font-family: 'Nanum Gothic', sans-serif;
+    overflow: hidden;
+}
+
+div.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 20px;
+    text-align: center;
+}
+
+.container span {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.container p {
+    padding-top: 30px;
+    font-size: 25px;
+}
+
+div.non-disability {
+    background-color: #262626;
+    min-height: 100%;
+    padding-top: 300px;
+}
+
+div.disability {
+    background-color: dimgrey;
+    min-height: 100%;
+    padding-top: 300px;
+    padding-bottom: 150px;
+}
+
+button {
+    background-color: deepskyblue;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    border: none;
+    padding: 15px 40px 15px 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 24px;
+    -webkit-transition-duration: 0.4s; /* Safari support */
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: cornflowerblue;
+}
