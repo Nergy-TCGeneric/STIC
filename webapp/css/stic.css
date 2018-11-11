@@ -1,0 +1,41 @@
+html, body {
+    margin: 0;
+    height: 105%;
+    background-color: #262626;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+section info {
+    flex-basis: 33%;
+    flex-grow: 1;
+}
+
+section main {
+    flex-basis: 100%;
+    flex-grow: 4;
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section blank {
+    flex-basis: 33%;
+    flex-grow: 1;
+}
+
+section main span {
+    font-size: 40px;
+    text-align: center;
+}
+
+section main p {
+    margin-bottom: 10%;
+    font-size: 20px;
+}
