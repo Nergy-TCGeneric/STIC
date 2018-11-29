@@ -1,6 +1,6 @@
 html, body {
     margin: 0;
-    height: 105%;
+    height: 100%;
     background-color: #262626;
 }
 
@@ -20,7 +20,7 @@ section info {
 section main {
     flex-basis: 100%;
     flex-grow: 4;
-    margin-top: 15%;
+    margin-top: 20%;
     margin-left: auto;
     margin-right: auto;
 }
