@@ -1,0 +1,49 @@
+﻿html
+{
+   font-family: 'Nanum Gothic', sans-serif;
+}
+
+a
+{
+    color: white;
+}
+
+section
+{
+    margin-top:1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ededed;
+}
+
+.development_status
+{
+    margin-top:4rem;
+}
+
+.painful_images img
+{
+    max-width: 100%;
+    padding-bottom: 1rem;
+}
+
+.GitHub
+{
+    margin-top:4rem;
+}
+
+.prototype_image img
+{
+    max-width: 100%;
+    padding-bottom: 1rem;
+}
+
+.contributors
+{
+    padding-top:2rem;
+}
+
+.contributors img
+{
+    max-width: 12rem;
+}
