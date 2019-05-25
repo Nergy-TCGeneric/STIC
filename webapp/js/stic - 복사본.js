@@ -3,18 +3,16 @@ function draw() {
 	var container = document.getElementById('testMap');
 	
 	var Nodes = [
-		{id:1, label:"ㅜ_ㅜ"},
-		{id:2, label:"자료가 부족합니다 -_-"},
-		{id:3, label:"검증된 자료여야 합니다."},
-		{id:4, label:"Vis.js에 의한 로드 지연은 없어야 합니다."},
-		{id:5, label:"군대 가기 전까지 빨리 만드쇼 -.-"}
+		{id:1, label:"시작"},
+		{id:2, label:"불의 발견"},
+		{id:3, label:"수렵채집"},
+		{id:4, label:"테스트4"}
 	];
 	
 	var Edges = [
-		{from:1, to:2},
+		{from:1, to:2, label:"어떻게 이걸 사용하지?"},
 		{from:1, to:3},
-		{from:1, to:4},
-		{from:1, to:5}
+		{from:1, to:4}
 	];
 	
 	var data = {
