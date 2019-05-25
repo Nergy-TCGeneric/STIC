@@ -3,15 +3,16 @@
    font-family: 'Nanum Gothic', sans-serif;
 }
 
-a
-{
-    color: white;
-}
-
 img
 {
     max-width:100%;
     max-height:100%;
+    padding-bottom: 1rem;
+}
+
+.jumbotron img
+{
+    padding-bottom: 0rem;
 }
 
 section
@@ -27,19 +28,9 @@ section
     margin-top:4rem;
 }
 
-.painful_images img
-{
-    padding-bottom: 1rem;
-}
-
 .GitHub
 {
     margin-top:4rem;
-}
-
-.prototype_image img
-{
-    padding-bottom: 1rem;
 }
 
 .contributors
