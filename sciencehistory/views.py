@@ -2,17 +2,19 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
-from .models import HistoryNode
+from .models import HistoryNode, ReferringFlow
 
 
 def index(request):
-    node_list = HistoryNode.objects.order_by("-created_date")[:5]
+    # TODO: Get entire HistoryNode, ReferringFlow list, not ordered by anything.
+    node_list = HistoryNode.objects
+    edge_list = ReferringFlow.objects
     template = loader.get_template('sciencehistory/stic.html')
     context = {
-        'historyNodeList' : node_list
+        'node_list' : node_list,
+        'edge_list' : edge_list
     }
     return HttpResponse(template.render(context, request))
 
 def about(request):
-    template = loader.get_template('sciencehistory/index.html')
-    return HttpResponse(template.render(request))
+    return render(request, 'sciencehistory/index.html')
