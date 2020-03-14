@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>STIC:: 지도</title>
+    <!-- Sigma.js libary initialization start -->
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/sigma.core.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/conrad.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/utils/sigma.utils.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/sigma.settings.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/classes/sigma.classes.dispatcher.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/classes/sigma.classes.configurable.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/classes/sigma.classes.graph.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/classes/sigma.classes.camera.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/classes/sigma.classes.quad.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/classes/sigma.classes.edgequad.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/captors/sigma.captors.mouse.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/captors/sigma.captors.touch.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/sigma.renderers.webgl.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/sigma.renderers.canvas.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/sigma.renderers.svg.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/sigma.renderers.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.labels.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.hovers.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.nodes.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.edges.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.nodes.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.nodes.fast.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.edges.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.edges.fast.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.edges.arrow.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/middlewares/sigma.middlewares.rescale.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/middlewares/sigma.middlewares.copy.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.bindEvents.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.bindDOMEvents.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.drawHovers.js' %}"></script>
+    <!-- Sigma.js library initialization end -->
+    <link rel="stylesheet" href="{% static 'sciencehistory/style.css' %}">
+</head>
+<body>
+    <div id="sigma-container"> <style>
+        #sigma-container {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+        }
+    </style> </div>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/plugins/sigma.parsers.gexf/gexf-parser.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/plugins/sigma.parsers.gexf/sigma.parsers.gexf.js' %}"></script>
+    <script>
+        sigma.parsers.gexf("{% static 'sciencehistory/sigma.js-1.2.1/examples/data/arctic.gexf' %}", {
+            container: "sigma-container"
+        });
+    </script>
+</body>
+</html>
