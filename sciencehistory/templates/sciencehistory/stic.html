@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>STIC:: 지도</title>
-    <!-- Sigma.js libary initialization start -->
+    <!-- Sigma.js start -->
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/sigma.core.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/conrad.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/utils/sigma.utils.js' %}"></script>
@@ -32,29 +32,70 @@
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.edges.arrow.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/middlewares/sigma.middlewares.rescale.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/middlewares/sigma.middlewares.copy.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.animation.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.bindEvents.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.bindDOMEvents.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.drawHovers.js' %}"></script>
-    <!-- Sigma.js library initialization end -->
+    <!-- Sigma.js end -->
+    <!-- Bootstrap 4 start -->
     <link rel="stylesheet" href="{% static 'sciencehistory/style.css' %}">
     <link rel="stylesheet" href="{% static 'sciencehistory/bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <!-- Bootstrap 4 end -->
+    <!-- Font awesome start -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!-- Font awesome end -->
+    <script src="{% static 'sciencehistory/stic.js' %}"></script>
 </head>
 <body>
-    <div id="sigma-container"> <style>
-        #sigma-container {
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            position: absolute;
-        }
-    </style> </div>
-    <script src="{% static 'sciencehistory/sigma.js-1.2.1/plugins/sigma.parsers.gexf/gexf-parser.js' %}"></script>
-    <script src="{% static 'sciencehistory/sigma.js-1.2.1/plugins/sigma.parsers.gexf/sigma.parsers.gexf.js' %}"></script>
-    <script>
-        sigma.parsers.gexf("{% static 'sciencehistory/sigma.js-1.2.1/examples/data/arctic.gexf' %}", {
-            container: "sigma-container"
-        });
-    </script>
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="sidebar-content">
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="./about">
+                            <i class="fas fa-info-circle"></i>
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://stic.dothome.co.kr/w/">
+                            <i class="fas fa-globe"></i>
+                            Wiki
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/tcgeneric/stic">
+                            <i class="fas fa-github"></i>
+                            Github
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-right">
+                    <button type="button" class="btn btn-outline-dark" id="sidebarCollapse">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="sigma-container" > </div>
+        </div>
+        <!-- Below script is stub. It will be replaced with actual values -->
+        <script src="{% static 'sciencehistory/sigma.js-1.2.1/plugins/sigma.parsers.gexf/gexf-parser.js' %}"></script>
+        <script src="{% static 'sciencehistory/sigma.js-1.2.1/plugins/sigma.parsers.gexf/sigma.parsers.gexf.js' %}"></script>
+        <script>
+            sigma.parsers.gexf("{% static 'sciencehistory/sigma.js-1.2.1/examples/data/arctic.gexf' %}", {
+                container: "sigma-container"
+            });
+        </script>
+    </div>
 </body>
 </html>

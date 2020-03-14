@@ -1,4 +1,58 @@
 html {
-    background-color: #262626;
     height: 100%;
+}
+
+.wrapper {
+    background-color: #262626;
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100vh;
+    background-color: #E5E5E5;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background-color: #393939;
+    text-align: right;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    background-color: dimgray;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar.active {
+    margin-left: -100px;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -100px;
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+#sigma-container {
+    width: 100%;
+    height: 90%;
+}
+
+#sidebarCollapse {
+    margin: 1%;
 }
