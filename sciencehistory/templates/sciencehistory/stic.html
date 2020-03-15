@@ -25,6 +25,11 @@
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.hovers.def.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.nodes.def.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.edges.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.edgehovers.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.edgehovers.curve.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.edgehovers.arrow.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.edgehovers.curvedArrow.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.extremities.def.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.nodes.def.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.nodes.fast.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.edges.def.js' %}"></script>
@@ -36,11 +41,12 @@
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.bindEvents.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.bindDOMEvents.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.drawHovers.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js' %}"></script>
     <!-- Sigma.js end -->
     <!-- Bootstrap 4 start -->
     <link rel="stylesheet" href="{% static 'sciencehistory/style.css' %}">
     <link rel="stylesheet" href="{% static 'sciencehistory/bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <!-- Bootstrap 4 end -->
     <!-- Font awesome start -->
@@ -53,7 +59,7 @@
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header">
-                <i class="fas fa-bars"></i>
+                메뉴
             </div>
             <div class="sidebar-content">
                 <ul class="list-unstyled components">
@@ -75,6 +81,12 @@
                             Github
                         </a>
                     </li>
+                    <li>
+                        <a onclick="open_stic_wiki('도움말')">
+                            <i class="fas fa-question"></i>
+                            Help
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -88,13 +100,55 @@
             </div>
             <div id="sigma-container" > </div>
         </div>
-        <!-- Below script is stub. It will be replaced with actual values -->
-        <script src="{% static 'sciencehistory/sigma.js-1.2.1/plugins/sigma.parsers.gexf/gexf-parser.js' %}"></script>
-        <script src="{% static 'sciencehistory/sigma.js-1.2.1/plugins/sigma.parsers.gexf/sigma.parsers.gexf.js' %}"></script>
+        <div class="container-fluid" id="wiki_viewer">
+
+        </div>
         <script>
-            sigma.parsers.gexf("{% static 'sciencehistory/sigma.js-1.2.1/examples/data/arctic.gexf' %}", {
-                container: "sigma-container"
-            });
+            var s,
+                g = {
+                    nodes: [ {% for node in node_list %}
+                        {
+                            id: '{{ node.title }}',
+                            label: '{{ node.title }}',
+                            x: Math.random(),
+                            y: Math.random(),
+                            size: 1,
+                            color: '#666',
+                        }, {% endfor %}
+                    ],
+                    edges: [ {% for edge in edge_list %}
+                        {
+                            id: 'edge{{forloop.counter}}',
+                            source: "{{ edge.start }}",
+                            target: "{{ edge.end }}",
+                            size: 1,
+                            color: '#ccc'
+                        } {% endfor %}
+                    ]
+                 };
+                s = new sigma({
+                    graph: g,
+                    renderer: {
+                        container: document.getElementById("sigma-container"),
+                        type: 'canvas'
+                    },
+                    settings: {
+                        enableEdgeHovering: true,
+                        edgeHoverColor: 'edge',
+                        defaultEdgeHoverColor: '#000',
+                        edgeHoverSizeRatio: 2,
+                        edgeHoverExtremities: true,
+                        hideEdgesOnMove: true,
+                        defaultLabelColor:"#FFFFFF"
+                    }
+                });
+                var dragListener = sigma.plugins.dragNodes(s, s.renderers[0]);
+                s.bind('clickNode', function(e) {
+                    open_stic_wiki(e.data.node.label);
+                });
+                s.bind('clickStage', function(e) {
+                    close_stic_wiki();
+                });
         </script>
     </div>
 </body>

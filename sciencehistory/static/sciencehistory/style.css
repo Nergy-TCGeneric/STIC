@@ -20,7 +20,6 @@ html {
 #sidebar .sidebar-header {
     padding: 20px;
     background-color: #393939;
-    text-align: right;
 }
 
 #sidebar ul.components {
@@ -46,6 +45,21 @@ html {
     #sidebar.active {
         margin-left: 0;
     }
+}
+
+#wiki_viewer {
+    width: 0;
+    padding: 0;
+    max-width: 30%;
+    min-height: 100%;
+    background-color: #393939;
+    transition: all 0.3s;
+    color: white;
+}
+
+#wiki_viewer.active {
+    width: 30%;
+    padding: 10px;
 }
 
 #sigma-container {
