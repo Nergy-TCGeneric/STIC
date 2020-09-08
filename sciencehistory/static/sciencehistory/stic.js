@@ -1,39 +1,25 @@
-$(document).ready(function () {
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-    })
-});
-
 function open_stic_wiki(name) {
-    $.ajax({
-        type: "GET",
-        url: "http://stic.dothome.co.kr/w/api.php",
-        data: {
-            action: "parse",
-            page: name,
-            prop: "text",
-            formatversion: "2",
-            format: "json"
-        },
-        dataType: "json"
-    })
-    .done(function(json) {
-        var title = ""
-        if(json['parse']['title']) title = "<h1>" + json['parse']['title'] + "</h1>";
-        else title = "<h1>" + "제목 없음" + "</h1>";
-        document.getElementById("wiki_viewer").innerHTML = title + json['parse']['text'];
-    })
-    .fail(function(xhr, status, errorThrown) {
-        console.log(status, errorThrown);
-        const title = "<h1>" + "이런!" + "</h1>";
-        document.getElementById("wiki_viewer").innerHTML = title + "데이터를 받아오는데 실패했습니다. 잠시 후 다시 시도해주세요.";
-    })
-    .always(function() {
-        $("#wiki_viewer").addClass('active');
-    });
+        let wiki_viewer = document.getElementById("wiki_viewer")
+        fetch(`http://stic.dothome.co.kr/w/api.php?action=parse&page=${name}&prop=text&formatversion=2&format=json`, {
+            method: "GET",
+            mode: 'cors',
+            headers: {
+                'Content-type': 'text/plain'
+            }
+        }).then(data => {
+            data.json().then(result => {
+                if (result['error'] != undefined) throw new Error("데이터를 받아오는 데 실패했습니다.")
+                wiki_viewer.innerHTML = `<h1> ${data['parse']['title']} </h1> ${data['parse']['text']}`
+            }).catch(err => {
+                wiki_viewer.innerHTML = `<h1> 이런! </h1> ${err.message} 잠시 후 다시 시도해주세요.`
+            })
+        }).finally(() => {
+            wiki_viewer.classList.add("active")
+        })
 }
 
 function close_stic_wiki() {
-    document.getElementById("wiki_viewer").innerHTML = "";
-    $("#wiki_viewer").removeClass('active');
+    let wiki_viewer = document.getElementById("wiki_viewer")
+    wiki_viewer.innerHTML = "";
+    wiki_viewer.classList.remove("active");
 }
