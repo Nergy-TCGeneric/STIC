@@ -1,0 +1,80 @@
+body, html {
+    height: 100%;
+    font-family: 'Viga', sans-serif;
+    color: white;
+    text-decoration: none;
+}
+
+.main {
+    min-height: 30rem;
+    width: 100%;
+    background-image: url("images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    height: auto;
+}
+
+.main:nth-child(1)
+{
+    text-align: right;
+    padding-right: 2rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    align-items: center;
+}
+
+.main:nth-child(1) h1
+{
+    font-size: 4rem;
+    margin: 0;
+    padding: 0;
+}
+
+.content-btn {
+    padding: 1.25rem 2.5rem
+}
+
+@media (min-width: 992px) {
+    .main {
+        height:100vh
+    }
+    
+    .main:nth-child(1) h1 {
+        font-size: 5rem
+    }
+}
+
+.contents {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+#about {
+    background-color: #323232;
+}
+
+.icon-content {
+    background-color: gray;
+    display: block;
+    height: 12rem;
+    width: 12rem;
+    font-size: 5rem;
+    line-height: 12rem;
+}
+
+#contributors {
+    background-color: #434343;
+}
+
+#contributors img {
+    max-height: 12rem;
+    padding-bottom: 1rem;
+}
+
+.footer p {
+    margin-bottom: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}

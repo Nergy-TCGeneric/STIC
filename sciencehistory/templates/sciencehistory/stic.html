@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>STIC:: 지도</title>
+    <!-- Sigma.js start -->
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/sigma.core.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/conrad.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/utils/sigma.utils.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/sigma.settings.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/classes/sigma.classes.dispatcher.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/classes/sigma.classes.configurable.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/classes/sigma.classes.graph.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/classes/sigma.classes.camera.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/classes/sigma.classes.quad.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/classes/sigma.classes.edgequad.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/captors/sigma.captors.mouse.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/captors/sigma.captors.touch.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/sigma.renderers.webgl.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/sigma.renderers.canvas.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/sigma.renderers.svg.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/sigma.renderers.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.labels.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.hovers.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.nodes.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.edges.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.edgehovers.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.edgehovers.curve.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.edgehovers.arrow.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.edgehovers.curvedArrow.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/canvas/sigma.canvas.extremities.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.nodes.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.nodes.fast.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.edges.def.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.edges.fast.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/renderers/webgl/sigma.webgl.edges.arrow.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/middlewares/sigma.middlewares.rescale.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/middlewares/sigma.middlewares.copy.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.animation.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.bindEvents.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.bindDOMEvents.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.drawHovers.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js' %}"></script>
+    <!-- Sigma.js end -->
+    <!-- Bootstrap 4 start -->
+    <link rel="stylesheet" href="{% static 'sciencehistory/style.css' %}">
+    <link rel="stylesheet" href="{% static 'sciencehistory/bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+    <!-- Bootstrap 4 end -->
+    <!-- Font awesome start -->
+    <script src="https://kit.fontawesome.com/af8cfd7311.js" crossorigin="anonymous"></script>
+    <!-- Font awesome end -->
+    <script src="{% static 'sciencehistory/stic.js' %}"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <image id="logo" src="{% static 'sciencehistory/images/STIClogo.png' %}">
+            </div>
+            <div class="sidebar-content">
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="./about">
+                            <i class="fas fa-info-circle"></i>
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://stic.dothome.co.kr/w/">
+                            <i class="fas fa-globe"></i>
+                            Wiki
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/tcgeneric/stic">
+                            <i class="fab fa-github"></i>
+                            Github
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="open_stic_wiki('도움말')">
+                            <i class="fas fa-question"></i>
+                            Help
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col text-right">
+                    <button type="button" class="btn btn-outline-dark" id="sidebarCollapse" onclick="toggle_sidebar()">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="sigma-container" > </div>
+        </div>
+        <div class="container-fluid" id="wiki_viewer">
+
+        </div>
+        <script>
+            var s,
+                g = {
+                    nodes: [ {% for node in node_list %}
+                        {
+                            id: '{{ node.title }}',
+                            label: '{{ node.title }}',
+                            x: Math.random(),
+                            y: Math.random(),
+                            size: '{{ node.significance }}',
+                            color: '#666',
+                        }, {% endfor %}
+                    ],
+                    edges: [ {% for edge in edge_list %}
+                        {
+                            id: 'edge{{forloop.counter}}',
+                            source: "{{ edge.start }}",
+                            target: "{{ edge.end }}",
+                            size: 1,
+                            color: '#ccc'
+                        } {% endfor %}
+                    ]
+                 };
+                s = new sigma({
+                    graph: g,
+                    renderer: {
+                        container: document.getElementById("sigma-container"),
+                        type: 'canvas'
+                    },
+                    settings: {
+                        enableEdgeHovering: true,
+                        edgeHoverColor: 'edge',
+                        defaultEdgeHoverColor: '#000',
+                        edgeHoverSizeRatio: 2,
+                        edgeHoverExtremities: true,
+                        hideEdgesOnMove: true,
+                        defaultLabelColor:"#FFFFFF"
+                    }
+                });
+                var dragListener = sigma.plugins.dragNodes(s, s.renderers[0]);
+                s.bind('clickNode', function(e) {
+                    open_stic_wiki(e.data.node.label);
+                });
+                s.bind('clickStage', function(e) {
+                    close_stic_wiki();
+                });
+        </script>
+    </div>
+</body>
+</html>

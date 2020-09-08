@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> STIC:: 안내 </title>
+        <meta charset="UTF-8" />
+        <script src="https://kit.fontawesome.com/af8cfd7311.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'sciencehistory/bootstrap-4.4.1-dist/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'sciencehistory/index.css' %}">
+    </head>
+
+    <body>
+        <header class="main d-flex">
+            <div class="container-fluid text-right">
+                <h1 class="display-4"> Project:: STIC</h1>
+                <h2 class="mb-5"> A map of mankind's science history </h2>
+                <form action="../">
+                    <button class="btn btn-primary content-btn" type="submit">Get started</button>
+                </form>
+            </div>
+        </header>
+        <section class="contents" id="about">
+            <div class="container-fluid text-center">
+                <div class="row mb-5">
+                    <div class="col">
+                        <h2> Wait, What's STIC? </h2>
+                        <h4 class="text-muted"> STIC stands for Science Tree for Innovation and Creativity. </h3>
+                        <h4 class="text-muted"> This aims to map almost every science histories from ancient to modern science. </h3>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-2">
+                        <span class="icon-content rounded-circle mx-auto mb-3">
+                            <i class="far fa-lightbulb"></i>
+                        </span>
+                        <h4> Aimed on motivation </h4>
+                        <p class="text-muted"> Every historic discoveries is connected based on 'motivation' and 'curiosity', like 'what happens if i do like this?'</p>
+                    </div>
+                    <div class="col-lg-2">
+                        <span class="icon-content rounded-circle mx-auto mb-3">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                        <h4> Easy to view </h4>
+                        <p class="text-muted"> Thanks to powerful visualization library simga.js, Viewers can easily tell relations between discoveries and whole historical flow.</p>
+                    </div>
+                    <div class="col-lg-2">
+                        <span class="icon-content rounded-circle mx-auto mb-3">
+                            <i class="fas fa-project-diagram"></i>
+                        </span>
+                        <h4> Vast range </h4>
+                        <p class="text-muted"> Same as mentioned above. Of course, these contents are based on various references such as papers or well-known publications. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contents" id="contributors">
+            <div class="container-fluid text-center">
+                <div class="row mb-5 justify-content-center">
+                    <h2> Who contributed here? </h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-2">
+                        <img class="img-fluid" src="{% static 'sciencehistory/images/5158870.png' %}">
+                        <p> TCGeneric (TC_G) </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container text-center">
+                <p class="text-muted small">Copyright © 2019 <a href="https://github.com/tcgeneric">TC_G(TCGeneric)</a> All rights reserved.</p>
+            </div>
+        </footer>
+    
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+    </body>
+</html>
