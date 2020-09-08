@@ -9,22 +9,26 @@ html {
     align-items: stretch;
 }
 
+#logo {
+    width: 4em;
+    height: 4em;
+}
+
 #sidebar {
     min-width: 100px;
     max-width: 100px;
     min-height: 100vh;
-    background-color: #E5E5E5;
+    background-color: #062121;
     transition: all 0.3s;
 }
 
 #sidebar .sidebar-header {
-    padding: 20px;
-    background-color: #393939;
+    padding: 15px;
+    background-color: #063030;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    background-color: dimgray;
 }
 
 #sidebar ul li a {

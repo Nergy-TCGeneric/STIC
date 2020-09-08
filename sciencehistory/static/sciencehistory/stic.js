@@ -9,7 +9,7 @@ function open_stic_wiki(name) {
         }).then(data => {
             data.json().then(result => {
                 if (result['error'] != undefined) throw new Error("데이터를 받아오는 데 실패했습니다.")
-                wiki_viewer.innerHTML = `<h1> ${data['parse']['title']} </h1> ${data['parse']['text']}`
+                wiki_viewer.innerHTML = `<h1> ${result['parse']['title']} </h1> ${result['parse']['text']}`
             }).catch(err => {
                 wiki_viewer.innerHTML = `<h1> 이런! </h1> ${err.message} 잠시 후 다시 시도해주세요.`
             })
@@ -22,4 +22,8 @@ function close_stic_wiki() {
     let wiki_viewer = document.getElementById("wiki_viewer")
     wiki_viewer.innerHTML = "";
     wiki_viewer.classList.remove("active");
+}
+
+function toggle_sidebar() {
+    document.getElementById("sidebar").classList.toggle("active")
 }
