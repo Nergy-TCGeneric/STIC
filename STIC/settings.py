@@ -10,17 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
-import os
+import os, json
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+client_secret = os.path.join(BASE_DIR, 'client_secret.json')
+with open(client_secret) as f:
+    secrets = json.loads(f.read())
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$%j1n9u0hv4sw9n#%3xka3qle*k!6h6h4pb0r-@de$bzd^+0r^'
+SECRET_KEY = secrets["client_secret"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
