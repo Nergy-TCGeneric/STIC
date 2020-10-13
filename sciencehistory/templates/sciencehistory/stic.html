@@ -42,6 +42,7 @@
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.bindDOMEvents.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/src/misc/sigma.misc.drawHovers.js' %}"></script>
     <script src="{% static 'sciencehistory/sigma.js-1.2.1/plugins/sigma.plugins.dragNodes/sigma.plugins.dragNodes.js' %}"></script>
+    <script src="{% static 'sciencehistory/sigma.js-1.2.1/plugins/sigma.renderers.customEdgeShapes/sigma.canvas.edges.dashed.js' %}"></script>
     <!-- Sigma.js end -->
     <!-- Bootstrap 4 start -->
     <link rel="stylesheet" href="{% static 'sciencehistory/style.css' %}">
@@ -103,24 +104,35 @@
         <script>
             var s,
                 g = {
-                    nodes: [ {% for node in node_list %}
+                    nodes: [ 
+                        {% for node in node_list %}
+                        {% if node.category != None %}
                         {
                             id: '{{ node.title }}',
                             label: '{{ node.title }}',
                             x: Math.random(),
                             y: Math.random(),
                             size: '{{ node.significance }}',
-                            color: '#666',
-                        }, {% endfor %}
+                            color: '{{ node.category.color }}',
+                        }, 
+                        {% endif %}
+                        {% endfor %}
                     ],
-                    edges: [ {% for edge in edge_list %}
+                    edges: [ 
+                        {% for edge in edge_list %}
+                        {% if edge.category != None %}
                         {
                             id: 'edge{{forloop.counter}}',
                             source: "{{ edge.start }}",
                             target: "{{ edge.end }}",
+                            {% if edge.indirect %}
+                            type: 'dashed',
+                            {% endif %}
                             size: 1,
-                            color: '#ccc'
-                        } {% endfor %}
+                            color: '{{ edge.category.color }}'
+                        } 
+                        {% endif %}
+                        {% endfor %}
                     ]
                  };
                 s = new sigma({
