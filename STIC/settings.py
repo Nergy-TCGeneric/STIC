@@ -15,7 +15,7 @@ import os, json
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-client_secret = os.path.join(BASE_DIR, 'client_secret.json')
+client_secret = os.path.join(BASE_DIR, './STIC/client_secret.json')
 with open(client_secret) as f:
     secrets = json.loads(f.read())
 
@@ -29,7 +29,6 @@ SECRET_KEY = secrets["client_secret"]
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 

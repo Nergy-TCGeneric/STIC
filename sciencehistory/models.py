@@ -36,4 +36,4 @@ class ReferringFlow(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
-        return self.description
+        return f"({self.start} -> {self.end}) {self.description}"
